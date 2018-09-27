@@ -1,0 +1,10 @@
+Feature: Ebay Search
+   This feature will search items and order them according to specifications
+
+  Scenario: Search action in Ebay obtaining ordered results
+       Given  I navigate to Ebay application
+         And  I search for shoes "PUMA" with size "10"
+         And  I order By Price ascendant
+        Then  I assert the 5 results and print them
+        Then  I order and print products by name ascendant
+        Then  I order and print products by price descendant
