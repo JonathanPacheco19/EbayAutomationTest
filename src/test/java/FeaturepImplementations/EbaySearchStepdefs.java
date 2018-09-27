@@ -25,7 +25,7 @@ public class EbaySearchStepdefs extends BaseUtil {
     @Given("^I navigate to Ebay application$")
     public void webInitNavigation() {
       try{
-         // code to implement Page Object Model logique
+         // code to implement Page Object Model logic
         ebayPage= new EbayPage(configInfo.webDriver);
         ebayPage.start();
         Thread.sleep(3000);

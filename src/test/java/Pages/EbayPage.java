@@ -47,4 +47,8 @@ public class EbayPage {
         webDriver.get(baseURL);
     }
 
+    public void stop(){
+        webDriver.close();
+    }
+
 }

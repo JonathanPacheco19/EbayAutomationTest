@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_pruebatesting" default="compile.module.pruebatesting">
+  <dirname property="module.pruebatesting.basedir" file="${ant.file.module_pruebatesting}"/>
+  
+  <property name="module.jdk.home.pruebatesting" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.pruebatesting" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.pruebatesting" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.pruebatesting" value="-encoding UTF-8 -source 5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="pruebatesting.output.dir" value="${module.pruebatesting.basedir}/target/classes"/>
+  <property name="pruebatesting.testoutput.dir" value="${module.pruebatesting.basedir}/target/test-classes"/>
+  
+  <path id="pruebatesting.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="pruebatesting.module.production.classpath">
+    <path refid="${module.jdk.classpath.pruebatesting}"/>
+    <path refid="library.maven:_info.cukes:cucumber-java:1.2.5.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-core:1.2.5.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-html:0.2.3.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-jvm-deps:1.0.5.classpath"/>
+    <path refid="library.maven:_info.cukes:gherkin:2.12.2.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-java:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-api:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chrome-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edge-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-ie-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-opera-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-remote-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-safari-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-support:3.14.0.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.8.15.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-exec:1.3.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.10.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:25.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-compat-qual:2.0.0.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.mojo:animal-sniffer-annotations:1.14.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.9.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:3.10.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.14.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+  </path>
+  
+  <path id="pruebatesting.runtime.production.module.classpath">
+    <pathelement location="${pruebatesting.output.dir}"/>
+    <path refid="library.maven:_info.cukes:cucumber-java:1.2.5.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-core:1.2.5.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-html:0.2.3.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-jvm-deps:1.0.5.classpath"/>
+    <path refid="library.maven:_info.cukes:gherkin:2.12.2.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-java:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-api:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chrome-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edge-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-ie-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-opera-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-remote-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-safari-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-support:3.14.0.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.8.15.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-exec:1.3.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.10.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:25.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-compat-qual:2.0.0.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.mojo:animal-sniffer-annotations:1.14.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.9.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:3.10.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.14.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+  </path>
+  
+  <path id="pruebatesting.module.classpath">
+    <path refid="${module.jdk.classpath.pruebatesting}"/>
+    <pathelement location="${pruebatesting.output.dir}"/>
+    <path refid="library.maven:_info.cukes:cucumber-java:1.2.5.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-core:1.2.5.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-html:0.2.3.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-picocontainer:1.2.5.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-jvm-deps:1.0.5.classpath"/>
+    <path refid="library.maven:_info.cukes:gherkin:2.12.2.classpath"/>
+    <path refid="library.maven:_org.picocontainer:picocontainer:2.15.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-java:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-api:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chrome-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edge-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-ie-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-opera-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-remote-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-safari-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-support:3.14.0.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.8.15.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-exec:1.3.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.10.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:25.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-compat-qual:2.0.0.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.mojo:animal-sniffer-annotations:1.14.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.9.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:3.10.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.14.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+  </path>
+  
+  <path id="pruebatesting.runtime.module.classpath">
+    <pathelement location="${pruebatesting.testoutput.dir}"/>
+    <pathelement location="${pruebatesting.output.dir}"/>
+    <path refid="library.maven:_info.cukes:cucumber-java:1.2.5.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-core:1.2.5.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-html:0.2.3.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-picocontainer:1.2.5.classpath"/>
+    <path refid="library.maven:_info.cukes:cucumber-jvm-deps:1.0.5.classpath"/>
+    <path refid="library.maven:_info.cukes:gherkin:2.12.2.classpath"/>
+    <path refid="library.maven:_org.picocontainer:picocontainer:2.15.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-java:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-api:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chrome-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edge-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-ie-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-opera-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-remote-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-safari-driver:3.14.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-support:3.14.0.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.8.15.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-exec:1.3.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.10.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:25.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-compat-qual:2.0.0.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.mojo:animal-sniffer-annotations:1.14.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.9.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:3.10.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:1.14.1.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.pruebatesting">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.pruebatesting">
+    <patternset refid="excluded.from.module.pruebatesting"/>
+  </patternset>
+  
+  <path id="pruebatesting.module.sourcepath">
+    <dirset dir="${module.pruebatesting.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="pruebatesting.module.test.sourcepath">
+    <dirset dir="${module.pruebatesting.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.pruebatesting" depends="compile.module.pruebatesting.production,compile.module.pruebatesting.tests" description="Compile module PruebaTesting"/>
+  
+  <target name="compile.module.pruebatesting.production" depends="register.custom.compilers" description="Compile module PruebaTesting; production classes">
+    <mkdir dir="${pruebatesting.output.dir}"/>
+    <javac2 destdir="${pruebatesting.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.pruebatesting}/javac">
+      <compilerarg line="${compiler.args.pruebatesting}"/>
+      <bootclasspath refid="pruebatesting.module.bootclasspath"/>
+      <classpath refid="pruebatesting.module.production.classpath"/>
+      <src refid="pruebatesting.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.pruebatesting"/>
+    </javac2>
+    
+    <copy todir="${pruebatesting.output.dir}">
+      <fileset dir="${module.pruebatesting.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.pruebatesting.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.pruebatesting.tests" depends="register.custom.compilers,compile.module.pruebatesting.production" description="compile module PruebaTesting; test classes" unless="skip.tests">
+    <mkdir dir="${pruebatesting.testoutput.dir}"/>
+    <javac2 destdir="${pruebatesting.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.pruebatesting}/javac">
+      <compilerarg line="${compiler.args.pruebatesting}"/>
+      <bootclasspath refid="pruebatesting.module.bootclasspath"/>
+      <classpath refid="pruebatesting.module.classpath"/>
+      <src refid="pruebatesting.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.pruebatesting"/>
+    </javac2>
+    
+    <copy todir="${pruebatesting.testoutput.dir}">
+      <fileset dir="${module.pruebatesting.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.pruebatesting" description="cleanup module">
+    <delete dir="${pruebatesting.output.dir}"/>
+    <delete dir="${pruebatesting.testoutput.dir}"/>
+  </target>
+</project>

@@ -16,7 +16,6 @@ public class EbayPageHook extends BaseUtil {
 
     @Before
     public void InitializeActions(){
-        System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chromedriver.exe");
         //System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\IdeaProjects\\PruebaTesting\\chromedriver.exe");
         baseconf.webDriver = new ChromeDriver();
